@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="shorcut icon" href="imagenes/LogoOnly.png">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" id="expression" disabled>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="result" disabled>
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn btn-primary" id="clear">Clear</button>
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn btn-secondary" id="seven">7</button>
+            <button type="button" class="btn btn-secondary" id="eight">8</button>
+            <button type="button" class="btn btn-secondary" id="nine">9</button>
+            <button type="button" class="btn btn-danger" id="divide">/</button>
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn btn-secondary" id="four">4</button>
+            <button type="button" class="btn btn-secondary" id="five">5</button>
+            <button type="button" class="btn btn-secondary" id="six">6</button>
+            <button type="button" class="btn btn-danger" id="multiply">x</button>
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn btn-secondary" id="one">1</button>
+            <button type="button" class="btn btn-secondary" id="two">2</button>
+            <button type="button" class="btn btn-secondary" id="three">3</button>
+            <button type="button" class="btn btn-danger" id="subtract">-</button>
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn btn-secondary" id="zero">0</button>
+            <button type="button" class="btn btn-danger" id="decimal">.</button>
+            <button type="button" class="btn btn-danger" id="add">+</button>
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn btn-success" id="equals">=</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const expression = document.getElementById("expression");
+  const result = document.getElementById("result");
+  const btns = document.querySelectorAll("button");
+
+  btns.forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      let val = btn.innerHTML;
+      if (val === "Clear") {
+        expression.value = "";
+        result.value = "";
+      } else if (val === "=") {
+        try {
+          let evalResult = eval(expression.value);
+          result.value = evalResult;
+        } catch (e) {
+          result.value = "Error";
+        }
+      } else {
+        expression.value += val;
+      }
+    });
+  });
+});
+</script>
+        <div class="form-group">
+          <button type="button" class="btn btn-success"></button>
+          <!-- JavaScript Bundle with Popper -->
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"></script>
+        
+          
+        </body>
+        </html>
+          
